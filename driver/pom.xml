@@ -13,7 +13,9 @@
     <artifactId>driver</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-
+    <modules>
+        <module>driver-api</module>
+    </modules>
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>

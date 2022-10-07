@@ -7,14 +7,14 @@
  **/
 package com.storage.driver.memory;
 
-import com.autumn.infrastructure.autumndb.model.Entry;
+import com.autumn.infrastructure.autumndb.model.Record;
 import com.autumn.infrastructure.driver.api.StoreProxy;
 
 public class MemoryStoreProxy implements StoreProxy {
     private final MemoryTable table = new MemoryTable();
 
     @Override
-    public Entry[] load(long start, long end, String key) {
+    public Record[] load(long start, long end, String key) {
         return table.get(start, end, key);
     }
 

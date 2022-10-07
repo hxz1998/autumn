@@ -7,7 +7,7 @@
  **/
 package com.autumn.infrastructure.driver.api;
 
-import com.autumn.infrastructure.autumndb.model.Entry;
+import com.autumn.infrastructure.autumndb.model.Record;
 
 /**
  * 所有操作都不提供 【修改】 这一个功能，任何一个数据一旦存储，
@@ -22,7 +22,7 @@ public interface StoreProxy {
      * @param key   匹配的键
      * @return 所有符合要求的记录
      */
-    Entry[] load(long start, long end, String key);
+    Record[] load(long start, long end, String key);
 
     /**
      * store 一个记录

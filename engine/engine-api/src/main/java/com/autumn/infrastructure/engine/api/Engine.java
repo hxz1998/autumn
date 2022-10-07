@@ -7,20 +7,47 @@
  **/
 package com.autumn.infrastructure.engine.api;
 
-public interface Engine {
+import java.io.InputStream;
+import java.io.OutputStream;
 
-    boolean update(String key, String value, long timestamp);
+public interface Engine {
+    void start();
+
+    void shutdown();
+
+    void show(View view);
+
+    void addListener(EngineListener listener);
+
+    void addFilter(EngineFilter filter);
+
+    void registerOutputStream(OutputStream os);
+
+    void registerInputStream(InputStream is);
+
+    OutputStream getOutputStream();
+
+    InputStream getInputStream();
 
     long save(String key, String value);
 
     String query(String key, long timestamp);
 
-    long[] query(String key);
+    String[] queryAll(String key);
 
-    long[] query(String key, String value);
-
-    String[] query(String key, long start, long end);
+    String[] query(String key, long from, long to);
 
     String[] query(String key, long... timestamps);
 
+    long[] query(String key);
+
+    View dump(String... keys);
+
+    String delete(String key, long timestamp);
+
+    String[] delete(String key, long... timestamp);
+
+    String[] delete(String key, long from, long to);
+
+    long pin();
 }

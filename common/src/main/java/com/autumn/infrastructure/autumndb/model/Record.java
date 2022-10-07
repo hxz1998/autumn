@@ -14,7 +14,7 @@ import lombok.*;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Entry {
+public class Record {
     long timestamp;
     String key;
     String value;

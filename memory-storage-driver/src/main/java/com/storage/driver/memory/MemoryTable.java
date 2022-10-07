@@ -7,7 +7,7 @@
  **/
 package com.storage.driver.memory;
 
-import com.autumn.infrastructure.autumndb.model.Entry;
+import com.autumn.infrastructure.autumndb.model.Record;
 
 import java.util.Iterator;
 import java.util.Map;
@@ -25,15 +25,15 @@ public class MemoryTable {
         return data.containsKey(key) && data.get(key).containsKey(timestamp);
     }
 
-    public Entry[] get(long start, long end, String key) {
+    public Record[] get(long start, long end, String key) {
         if (!data.containsKey(key)) return null;
         Map<Long, String> queryResult = data.get(key).subMap(start, true, end, true);
         int size = queryResult.size();
-        Entry[] entries = new Entry[size];
+        Record[] entries = new Record[size];
         Iterator<Map.Entry<Long, String>> iterator = queryResult.entrySet().iterator();
         for (int idx = 0; iterator.hasNext(); idx++) {
             Map.Entry<Long, String> entry = iterator.next();
-            entries[idx] = Entry.builder().value(entry.getValue()).key(key).timestamp(entry.getKey()).build();
+            entries[idx] = Record.builder().value(entry.getValue()).key(key).timestamp(entry.getKey()).build();
         }
         return entries;
     }
@@ -51,7 +51,7 @@ public class MemoryTable {
     }
 
     public String remove(long timestamp, String key) {
-        if (!data.containsKey(key) || !data.get(key).containsKey(timestamp)) return "";
+        if (!data.containsKey(key) || !data.get(key).containsKey(timestamp)) return null;
         return data.get(key).remove(timestamp);
     }
 }

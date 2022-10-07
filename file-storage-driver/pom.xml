@@ -15,8 +15,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.autumn.infrastructure.driver</groupId>
-            <artifactId>driver</artifactId>
+            <groupId>com.autumn.infrastructure.driver.api</groupId>
+            <artifactId>driver-api</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>

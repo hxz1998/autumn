@@ -16,4 +16,10 @@ public interface Driver {
      */
     StoreProxy getStoreProxy();
 
+    String getDriverName();
+
+    String getDriverVersion();
+
+    String[] getDriverInfo();
+
 }
