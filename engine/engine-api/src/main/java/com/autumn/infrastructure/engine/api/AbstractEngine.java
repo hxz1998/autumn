@@ -57,11 +57,13 @@ public abstract class AbstractEngine implements Engine {
 
     @Override
     public void registerOutputStream(OutputStream os) {
+        log.info("register output stream.");
         this.outputStream = os;
     }
 
     @Override
     public void registerInputStream(InputStream is) {
+        log.info("register input stream.");
         this.inputStream = is;
     }
 
